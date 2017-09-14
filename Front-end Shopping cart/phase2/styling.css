@@ -111,11 +111,12 @@ float:right;
 .product {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
 	width: 300px;
-	margin-top:-45px;
+	margin-top:5px;
 	margin-left: 35px;
-	margin-bottom:70px;
+	margin-bottom:50px;
 	float: left;
 }
+
 .product:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.1);
 }
