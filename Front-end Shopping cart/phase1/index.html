@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js">
+
+</script>
+<link rel="stylesheet" href="styling.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body style="background-color:gainsboro;">
+
+<!-- Header -->
+<div class="topnav">
+<div class="circle">3</div> 
+<div class="text">Cart</div>
+<img src = "cart.png">
+<div class="title">Online Shopping</div>
+</div>
+
+<div id="sidenav">
+
+ <div class="cart_title">
+YOUR SHOPPING CART
+</div>
+ <div class="item">
+  <span class="close" onclick="this.parentElement.style.display='none'" >&times;</span>
+  Tenix Oxer
+  <div class="price">
+  <b>&#8377;2660</b>
+   </div>
+ 
+  </div>
+<div class="item">
+<span class="close" onclick="this.parentElement.style.display='none'" >&times;</span>
+  Bose
+  <div class="price">
+  <b>&#8377;2200</b>
+  
+</div>
+</div>
+<div class="item">
+<span class="close" onclick="this.parentElement.style.display='none'" >&times;</span>
+  Generic GT08 
+  <div class="price">
+  <b>&#8377;6499</b>
+ 
+</div>
+</div>
+<div class="total">
+Total
+<div class="total_price">
+&#8377;11,359
+</div>
+</div>
+</div>
+ 
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+<!-- Products-->
+<section>
+<div class="img_list">
+<img src = "list.png" height="60" width="60">
+</div>
+<div class="img_view">
+<img src = "grid.png" height="42" width="42">
+</div>
+<div class="w3-row">
+
+<div class="product">
+  <img src="images/p1.jpg" style="width:100%">
+  <div class="container">
+  <div class="text">
+    <b>Welcome Fitness Play</b>
+	<div class="instock">  IN STOCK  </div>
+  </div>
+    <p>Unisex sports shoe</p>
+	<h4><b>&#8377;3500</b></h4> 
+	<div style="text-align: center;"><button id="addto_button" type="submit">ADD TO CART</button></div>
+  </div>
+</div>
+
+<div class="product">
+  <img src="images/p2.jpg"  style="width:100%">
+  <div class="container">
+     <div class="text">
+    <b>Tenix Oxer</b> <div class="instock">  IN STOCK  </div>
+  </div>
+    <p>Men's Casual Shoe</p> 
+	<h4><b>&#8377;2660</b></h4> 
+	<div style="text-align: center;"><button id="addto_button" type="submit">ADD TO CART</button></div>
+  </div>
+ </div>
+ 
+<div class="product">
+  <img src="images/p3.jpg"  style="width:100%">
+  <div class="container">
+   <div class="text">
+    <b>Nike Roshi One</b> <div class="outstock">  OUT OF STOCK  </div>
+  </div>
+    <p>Women's shoe</p> 
+	<h4><b>&#8377;3200</b></h4> 
+	<div style="text-align: center;"><button id="nostock_button" type="submit">ADD TO CART</button></div>
+  </div>
+ </div>
+ 
+ </div>
+ <div class="w3-row">
+ <div class="product">
+  <img src="images/p4.jpg"  style="width:100%">
+  <div class="container">
+  <div class="text">
+    <b>Bose</b> <div class="instock">  IN STOCK  </div>
+  </div>
+  <p>Wireless Headphones</p> 
+	<h4><b>&#8377;2200</b></h4> 
+	<div style="text-align: center;"><button id="addto_button" type="submit">ADD TO CART</button></div>
+  </div>
+ </div>
+ 
+ <div class="product">
+  <img src="images/p5.jpg"  style="width:100%">
+  <div class="container">
+  <div class="text">
+    <b>Sony</b> <div class="outstock">  OUT OF STOCK  </div>
+  </div>
+    <p>Headphones</p> 
+	<h4><b>&#8377;1990</b></h4> 
+	<div style="text-align: center;"><button id="nostock_button" type="submit">ADD TO CART</button></div>
+  </div>
+ </div>
+ 
+ <div class="product">
+  <img src="images/p6.jpg"  style="width:100%">
+  <div class="container">
+  <div class="text">
+    <b>Beats</b> <div class="instock">  IN STOCK  </div>
+  </div>
+    <p>Wireless Headphones</p> 
+	<h4><b>&#8377;3999</b></h4> 
+	<div style="text-align: center;"><button id="addto_button" type="submit">ADD TO CART</button></div>
+  </div>
+ </div>
+ 
+ </div>
+ <div class="w3-row">
+ <div class="product">
+  <img src="images/p7.jpg"  style="width:100%">
+  <div class="container">
+  <div class="text">
+    <b>Generic GT08</b> <div class="instock">  IN STOCK  </div>
+  </div>
+    <p>Smart Watch</p> 
+	<h4><b>&#8377;6499</b></h4> 
+	<div style="text-align: center;"><button id="addto_button" type="submit">ADD TO CART</button></div>
+  </div>
+ </div>
+ 
+ <div class="product">
+  <img src="images/p8.jpg"  style="width:100%">
+  <div class="container">
+  <div class="text">
+    <b>Sony</b> <div class="instock">  IN STOCK  </div>
+  </div>
+     <p>Smart Watch</p> 
+	<h4><b>&#8377;32000</b></h4> 
+	<div style="text-align: center;"><button id="addto_button" type="submit">ADD TO CART</button></div>
+  </div>
+ </div>
+ 
+  <div class="product">
+  <img src="images/p9.jpg"  style="width:100%">
+  <div class="container">
+  <div class="text">
+    <b>Fossil Gen2</b> <div class="instock">  IN STOCK  </div>
+  </div>
+    <p>Smart Watch</p> 
+	<h4><b>&#8377;21999</b></h4> 
+	<div style="text-align: center;"><button id="addto_button" type="submit">ADD TO CART</button></div>
+  </div>
+ </div>
+ </div>
+ </section>
+ 
+
+ </body>
+</head>
+</html>
