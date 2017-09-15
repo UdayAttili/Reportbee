@@ -1,0 +1,107 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+
+<link rel="stylesheet" href="view.css">
+<div class="side">
+<div class="img">
+<img src ="" id="image" height="250px" width="250px">
+</div>
+<div class="name" id="name"> </div>
+<a href="" id="surl"><i class="fa fa-stack-overflow fa-3x" aria-hidden="true"></i></a>
+<a href="" id="gurl"><i class="fa fa-github fa-3x "  aria-hidden="true"></i></a> 
+<a href="" id="lurl"><i class="fa fa-linkedin fa-3x" aria-hidden="true"></i></a> 
+<div class="head">ABOUT ME
+<div class="text" id="desc"> </div></div>
+<div class="head" >Languages
+<div class="text" id="lang"> </div>
+
+<div class="star-ratings-sprite"><span  id="lang_rat" style="width:0%" class="star-ratings-sprite-rating"></span></div>
+
+
+</div>
+</div>
+<div class="bar" >
+<div class="text">
+Education
+<div class ="heading" id="org_name"></div><div class ="sub" id="org_loc"></div>
+<div class ="sub" id="org_deg"></div><div class ="sub" id="ord_btch"></div>
+</div>
+
+</div>
+<br><br><br>
+<br><br><br>
+<div class="bar">
+<div class="text">
+Skills
+
+
+<div class ="heading" id="skills"></div>
+<div class="w3-light-grey" >
+
+  <div class="w3-blue" id="skill_rat" style="height:24px;width:0%"></div>
+</div>
+</div>
+</div>
+<br><br><br>
+<br><br><br>
+<div class="bar">
+<div class="text">
+Awards & Recognition
+</div>
+<div class="content" id="ar"></div><br>
+
+</div>
+<br><br><br>
+<br><br><br>
+<div class="bar">
+<div class="text">
+Get in touch with me
+</div>
+<input type ="text"  id="number" placeholder="Enter your name"><br>
+<input type ="text"  id="number"  placeholder="Enter your email"><br>
+<textarea rows="4" cols="75"  placeholder="Say something.."></textarea><br>
+<input type="submit" value="Submit">
+</div>
+
+<script>
+
+var myObj = JSON.parse(localStorage.getItem("1"));
+var fname = myObj["fname"];
+ document.getElementById("name").innerHTML += fname;
+var lang = myObj["lang"];
+ document.getElementById("lang").innerHTML += lang; 
+ var desc = myObj["desc"];
+ document.getElementById("desc").innerHTML += desc;
+ var org_name = myObj["org_name"];
+ document.getElementById("org_name").innerHTML += org_name;
+ var org_loc = myObj["org_loc"];
+ document.getElementById("org_loc").innerHTML += org_loc;
+  var org_deg = myObj["org_deg"];
+ document.getElementById("org_deg").innerHTML += org_deg;
+  var ord_btch = myObj["ord_btch"];
+ document.getElementById("ord_btch").innerHTML += ord_btch;
+ var skills = myObj["skills"];
+ document.getElementById("skills").innerHTML += skills;
+  var skill_rat = myObj["skill_rat"];
+ document.getElementById("skill_rat").style = ('height:24px;width:'+skill_rat+'%');
+   var ar = myObj["ar"];
+ document.getElementById("ar").innerHTML += ar;
+ var lang_rat = myObj["lang_rat"];
+ document.getElementById("lang_rat").style = ('width:'+lang_rat+'%') ;
+  var image = myObj["image"];
+ document.getElementById("image").src= image;
+ var gurl = myObj["gurl"];
+ document.getElementById("gurl").href = gurl;
+ var surl = myObj["surl"];
+ document.getElementById("surl").href = surl;
+  var lurl = myObj["lurl"];
+ document.getElementById("lurl").href = lurl;
+ 
+ 
+</script>
+</body>
+</head>
+</html>

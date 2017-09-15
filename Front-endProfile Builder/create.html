@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<body style="background-color:gainsboro;">
+<link rel="stylesheet" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<h1 align="center" style="font-family:verdana; font-size:250%;"><font color="#0097C6">Create a new Profile</font></h1>
+<div class="page">
+
+<form  id="create" type="post">
+<div class="title">Name</div><br>
+<input type="text" name="fname" value=""/><br>	
+<div class="title">Short bio</div><br>
+<textarea rows="4" cols="50" name="desc"></textarea><br>
+<div class="title">Profile picture</div><br>
+<input type="file" name="image"><br>
+<div class="title">Social Details</div><br>
+<li>Github: &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="url" name="gurl"></li><br>
+<li>StackOverflow:  &emsp;&emsp;&nbsp;&nbsp;&nbsp;<input type="url" name="surl"></li><br>
+<li>LinkedIn: &nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="url" name="lurl"></li><br>
+<div class="title">Education</div><br>
+<li>Name of Organisation &nbsp;&nbsp;&nbsp; <input type ="text"  name="org_name" value=""></li><br><br>
+<li>Location &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;<input type ="text"  name="org_loc" value=""></li><br><br>
+<li>Degree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp; <input type ="text"  name="org_deg" value=""></li><br><br>
+<li>Batch &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;<input type ="text"  name="ord_btch" value=""></li><br><br>
+<div class="title">Skills</div><br>
+<input type ="text"  name="skills" value=""><br>
+<div class="subtitle">Self rating percentage</div><br>
+<input type ="text"  name="skill_rat" value=""><br>
+<div class="title">Awards & Recognition</div><br>
+<textarea  rows="4" cols="50" name="ar"></textarea><br>
+<div class="title">Languages</div><br>
+<input type ="text"  name="lang" value=""><br>
+<div class="subtitle">Self rating percentage</div><br>
+<input type ="text"  name="lang_rat" value=""/><br><br>
+<input type="submit" id="btn" name="btn" class="btn" onclick="inc();" value="Submit"/>
+</form>
+</div>
+
+<script type="text/javascript">
+var num=0;
+ 	$('#create').submit(function(e) {
+    e.preventDefault(); // prevent the form from attempting to send to the web server
+    var $inputs = $('#create :input');
+
+    var values = {};
+    $inputs.each(function() {
+        values[this.name] = $(this).val();
+		
+    });
+	
+    localStorage.setItem(''+parseInt(num), JSON.stringify(values));
+});
+function inc(){
+
+	num = num +1;
+	alert("Data saved in Local Storage");
+}
+
+</script>
+</body>
+</head>
+</html>

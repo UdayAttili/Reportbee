@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="main.css">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<div class="card">
+  <img src="" id="image" style="width:100%">
+ <div id="name" class="name" ><h1></h1></div>
+ 
+  
+  <p> <a href="view.html" ><button>View</button></a></p>  
+  <p> <button>Delete</button></p>
+</div>
+<br>
+<div class="cardnew">
+<a href="create.html" >
+<img src="plus.png" id ="plus"style="width:100%">
+
+<div class="name"><h1>Add new</h1></div>
+</a>
+</div>
+<script>
+
+var myObj = JSON.parse(localStorage.getItem("1"));
+var fname = myObj["fname"];
+ document.getElementById("name").innerHTML += fname;
+
+  var image = myObj["image"];
+ document.getElementById("image").src = image;
+ 
+ 
+</script>
+<script>
+$( "button" ).click(function() {
+  $( ".card" ).remove();
+});
+
+
+</script>
