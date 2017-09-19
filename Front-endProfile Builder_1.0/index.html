@@ -1,0 +1,79 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="main.css">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+
+<div id = "main">
+
+<a style="display:none" id="counter">0</a>
+<!--<div  class="card">
+  <img src=" " id="image1" style="height:300px;width:300px;">
+ <div id="name1" class="name" ><h1></h1></div>
+ 
+  
+  <p> <a href="view.html" ><button id="1" onclick="view_func(this.id);">View</button></a></p>  
+  <p> <button id = "a_1" onclick="del(this.id)">Delete</button></p>
+</div>-->
+
+
+
+</div>
+<div class="cardnew" >
+
+<img src="plus.png" id ="plus" style="width:100%">
+
+<div class="name"  ><a href="create.html" ><button onclick="inc();">ADD NEW</button></a></div>
+
+</div>
+
+
+
+
+<script>
+var num;
+var temp;
+function inc(){
+	num =  parseInt($("#counter").text());
+	num = num +1;
+	localStorage.setItem("count", num);
+	
+}
+
+
+
+var count = JSON.parse(localStorage.getItem("count"));
+document.getElementById("counter").innerHTML = count;
+
+ 
+  for(var i=0;i<=count;i++)
+  $('#main').append(' <div class="card">   <img src="" id="image'+i+'" style="height:300px;width:300px;">  <div id="name'+i+'" class="name" ><h1></h1></div>   <p> <a href="view.html" ><button id ="'+i+'" onclick="view_func(this.id);">View</button></a></p>    <p> <button id = "a_'+i+'" onclick="del(this.id)">Delete</button></p> </div> ')
+
+for(var i=0;i<=count;i++)
+{
+var myObj = JSON.parse(localStorage.getItem(i));
+var fname = myObj["fname"];
+ document.getElementById("name"+i).innerHTML += fname;
+
+  var image = myObj["image"];
+ document.getElementById("image"+i).src = image;
+ }
+
+function view_func(id_clicked) {
+     temp = id_clicked;
+	localStorage.setItem("temp", temp);
+  }
+
+</script>
+<script>
+function del(id_clicked) {
+
+  var temp2 = id_clicked;
+  var res = temp2.split("_");
+  localStorage.setItem("temp2", 1);
+  localStorage.removeItem(res[1]);
+  var count = JSON.parse(localStorage.getItem("count"));
+  document.getElementById("counter").innerHTML = count -1 ;
+   localStorage.setItem("count", count-1);
+}
+
+</script>

@@ -1,0 +1,144 @@
+.side{
+	width:23%;
+    height:250%;
+    position:absolute;
+    margin-top:-8px;
+    left:0;
+	top:0;
+	bottom:-10;
+	background-color: #404040;
+    border-right: none;
+}
+.side .img{
+	vertical-align:middle;
+    margin-top:50px;
+    margin-left:20px;
+	
+}
+.side .name{
+	color:#0097C6;
+    margin-top:6px;
+    text-align:center;
+	font-family: 'Roboto';
+font-size: 34px;
+}
+.side .head{
+	color:#0097C6;
+    margin-top:6px;
+    text-align:left;
+	font-family: 'Roboto';
+font-size: 34px;
+}
+.side .text{
+	color:#ffffff;
+    margin-top:6px;
+    text-align:left;
+	font-family: 'Roboto';
+font-size: 20px;
+}
+.bar{
+
+background-color:#0097C6;
+width:65%;
+height:60px;
+margin-top:80px;
+
+margin-left:245px;
+color:white;
+
+}
+.bar .text{
+padding: 10px 40px 	;
+text-align:left;
+font-family: 'Roboto';
+font-size: 34px;
+
+}
+.bar .heading{
+padding: 10px 2px;
+margin-top:20px;
+text-align:left;
+font-family: 'Roboto';
+font-size: 32px;
+color:black;
+}
+.bar .sub{
+padding: 0px 2px;
+margin-top:-15px;
+text-align:left;
+font-family: 'Roboto';
+font-size: 20px;
+color:black;
+margin-bottom:15px;
+}
+.bar .content{
+padding: 20px 40px;
+margin-top:5px;
+text-align:left;
+font-family: 'Roboto';
+font-size: 20px;
+color:black;
+margin-bottom:15px;
+}
+input[type=text], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 50px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+	
+}
+textarea {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 50px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=submit] {
+    width: 45%;
+    background-color: #0097C6;
+    color: white;
+    padding: 14px 50px;
+    margin: 8px 50px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #0097d8;
+	
+}
+@import "lesshat";
+
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+.star-ratings-sprite {
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+  font-size: 0;
+  height: 21px;
+  line-height: 0;
+  
+  overflow: hidden;
+  text-indent: -999em;
+  width: 110px;
+  margin: 0 auto;
+}
+.star-ratings-sprite-rating {
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+  background-position: 0 100%;
+  left:20;
+
+  height: 21px;
+  display: block;
+}
+
+body { margin: 50px; text-align: center; font-family: 'Open Sans', sans-serif; background: #f2fbff; }
+em { font-style: italic; }
+h1 { font-size: 24px; margin-bottom: 25px; font-weight: bold; text-transform: uppercase; }
+h2 { font-size: 16px; margin-bottom: 15px;}
