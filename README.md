@@ -3,5 +3,7 @@ Shopping site:  https://drive.google.com/open?id=0B8gJgi_6s6m3SEpVMVlSazMyRW8
 
 Profile builder: https://drive.google.com/open?id=0B8gJgi_6s6m3RzlKLWZoMFFqT1E
 
-If the browser doesn't support video format download the video..
+Phase 3:  https://drive.google.com/open?id=0B8gJgi_6s6m3RXcxVEE3cmJfUFE
+
+Phase 4:  https://drive.google.com/open?id=0B8gJgi_6s6m3ZTdpNVRZaC1idXc
 
