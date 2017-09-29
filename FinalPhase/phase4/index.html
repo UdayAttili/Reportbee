@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" href="styling.css">
+<link id="pagestyle" rel="stylesheet" href="styling1.css">
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="read.js"></script>
+<script type="text/javascript">
+   function swap(sheet)
+   {
+		document.getElementById('pagestyle').setAttribute('href' , sheet); 
+   }
+		
+    </script>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body style="background-color:gainsboro;">
+<!-- Header -->
+<div class="topnav">
+<div class="circle" id="count_cart">0</div> 
+<div class="text" onClick="openNav()">Cart</div>
+<img src = "cart.png" onClick="openNav()">
+<div class="title">Online Shopping</div>
+</div>
+
+<div id="sidenav">
+
+ <div class="cart_title">
+YOUR SHOPPING CART
+<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+</div>
+
+
+<div class="total">
+Total &ensp; 
+<div class="total_price" id="price">
+&#8377;0
+</div>
+</div>
+</div>
+ 
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+<!-- Products-->
+<div class="page">
+<div id="toggle">
+<div class="selectname">Brand</div>
+<select class="selection" id="selection">
+  
+  <option value="0" selected="">Beats</option>
+  <option value="1" selected="">Bose</option>
+  <option value="3" selected="">Fossil</option>
+  <option value="4"selected="">Generic</option>
+  <option value="2"selected="">Sony</option>
+  <option value="none" selected="">None</option>
+</select>
+<button class = "" id ="selectbtn" onclick="go();">Go</button>
+
+<div class="img_list" onClick="swap('styling2.css');">
+<img src = "list.png" height="60" width="60">
+</div>
+<div class="img_view" onClick="swap('styling1.css');">
+<img src = "grid.png" height="42" width="42">
+</div>
+</div>
+
+<div id= "all">
+<a style="display:none" id="counter">0</a>
+ 
+</div>
+</div>
+
+
+
+
+
+  </body>
+  
+<script >
+
+function go(){
+location.reload();
+var e = document.getElementById("selection");
+var strUser = e.options[e.selectedIndex].text; 
+var value = e.options[e.selectedIndex].value; 
+  console.log(strUser);
+  
+  if(strUser == "None")
+  {
+	var idea = localStorage.getItem("temp");
+	localStorage.setItem("count",idea);
+	localStorage.setItem("k",0);
+  }
+  else
+  {
+
+  localStorage.setItem("count",value);
+  localStorage.setItem("k",value);
+
+  }
+}
+var count = JSON.parse(localStorage.getItem("count"));
+document.getElementById("counter").innerHTML = count;
+
+ var k = localStorage.getItem("k");
+  for(var i=k;i<=count;i++)
+  $('#all').append('<div class="product"> <div class="container">  <img src=""  id="image'+i+'" >  <b><div class="text" id="head'+i+'">   <div class = "instock" id="instock_'+i+'">  IN STOCK  </div> </div></b> <p id="shead'+i+'"></p>  <h4><b id="price'+i+'">&#8377;</b></h4>  <button class="addto_button" id="b_'+i+'"  value="item_'+i+'"  onclick="check(this.value);">ADD TO CART</button>   </div> </div>')
+
+for(var i=k;i<=count;i++)
+{
+var myObj = JSON.parse(localStorage.getItem(i));
+var head = myObj["head"];
+ document.getElementById("head"+i).innerHTML += head;
+
+ var shead = myObj["shead"];
+ document.getElementById("shead"+i).innerHTML += shead;
+ 
+ var price = myObj["price"];
+ document.getElementById("price"+i).innerHTML += price;
+ 
+  var image = myObj["image"];
+ document.getElementById("image"+i).src = image;
+ }
+ function check(val) {
+ var temp2 = val;
+  var res = temp2.split("_");
+  var i = res[1];
+var myObj = JSON.parse(localStorage.getItem(i));
+var q = myObj["quantity"];
+
+console.log(myObj.quantity);
+
+
+ var obj = localStorage.getItem(val);
+ var data = JSON.parse(localStorage.getItem(i));
+ var quan = data["quantity"];
+ var myObj = JSON.parse(localStorage.getItem(i));
+var q = myObj["quantity"];
+
+num =  parseInt($('#itemcount_'+i+'').text());
+if(myObj.quantity != num)
+ {
+if(obj == "no")
+{
+ 
+ localStorage.setItem(val,"yes");
+ 
+ item(val);
+ price_total(val);
+ addt(i);
+ item_inc(i);
+}
+else
+{
+	 price_total(val);
+ addt(i);
+ item_inc(i);
+}
+}
+else
+{
+	// No stock here
+
+	document.getElementById("instock_"+i).innerHTML = "Out of stock";
+	document.getElementById("instock_"+i).id = "outstock";
+	
+	document.getElementById("b_"+i).id = "nostock_button";
+	
+	document.getElementById("image"+i).classList.add('imageOp');
+}
+	
+ }
+ </script>
+ <script>
+ var total=0;
+function item(val) {
+ var temp2 = val;
+  var res = temp2.split("_");
+  
+  var i = res[1];
+	
+  $(' <div class="item" id="item'+i+'" value="item_'+i+'" style="display: block" >   <span class="close"  id="item_'+i+'" onclick="this.parentElement.style.display= (&#39;none&#39;);subt_remove(this.id);total_remove(this.id);" >&times;</span></div> ').insertAfter(".cart_title")
+
+
+var myObj = JSON.parse(localStorage.getItem(i));
+var head = myObj["head"];
+var price = myObj["price"];
+ document.getElementById("item"+i).innerHTML += '<span class="cart_circle" id="itemcount_'+i+'">0</span>'+head +'&emsp;'+' <img src="plus.png" id="item_'+i+'" onclick="addt('+i+');price_total(this.id);item_inc('+i+');" height="25" width="25"> <img src="minus.png" height="25" width="25" id="itemdec_'+i+'" onclick="subt('+i+');dec_total(this.id);item_dec('+i+');" >'+'&emsp;' +'<b>' +'&#8377;'+price+'</b>';
+}
+
+
+function price_total(val){
+var temp2 = val;
+  var res = temp2.split("_");
+ var i = res[1];
+num =  parseInt($('#itemcount_'+i+'').text());
+var myObj = JSON.parse(localStorage.getItem(i));
+
+if(myObj.quantity != num)
+ {
+var price = myObj["price"];
+total =  total + parseInt(price);
+document.getElementById("price").innerHTML = "&#8377;"+total ;
+}
+else
+{
+document.getElementById("instock_"+i).innerHTML = "Out of stock";
+	document.getElementById("instock_"+i).id = "outstock";
+	
+	document.getElementById("b_"+i).id = "nostock_button";
+	
+	document.getElementById("image"+i).classList.add('imageOp');
+}
+
+
+
+}
+ 
+function total_remove(val){
+var temp2 = val;
+  var res = temp2.split("_");
+ var i = res[1];
+ num =  parseInt($('#itemcount_'+i+'').text());
+var myObj = JSON.parse(localStorage.getItem(i));
+var price = myObj["price"];
+total =  total - parseInt(price*num);
+document.getElementById("price").innerHTML = "&#8377;"+total ;
+
+
+ var obj = localStorage.getItem(val);
+ localStorage.setItem(val,"no");
+
+} 
+ 
+ 
+function dec_total(val){
+var temp2 = val;
+  var res = temp2.split("_");
+ var i = res[1];
+
+
+var myObj = JSON.parse(localStorage.getItem(i));
+var price = myObj["price"];
+num =  parseInt($('#itemcount_'+i+'').text());
+if(num > 0)
+total =  total - parseInt(price);
+document.getElementById("price").innerHTML = "&#8377;"+total ;
+
+
+}
+ function item_inc(i){
+ var myObj = JSON.parse(localStorage.getItem(i));
+var q = myObj["quantity"];
+
+num =  parseInt($('#itemcount_'+i+'').text());
+if(myObj.quantity != num)
+ {
+num = num + 1;
+document.getElementById("itemcount_"+i).innerHTML = +num ;
+}
+else
+{
+document.getElementById("instock_"+i).innerHTML = "Out of stock";
+	document.getElementById("instock_"+i).id = "outstock";
+	
+	document.getElementById("b_"+i).id = "nostock_button";
+	
+	document.getElementById("image"+i).classList.add('imageOp');
+}
+}
+ function item_dec(i){
+ num =  parseInt($('#itemcount_'+i+'').text());
+if(num > 0)
+ {
+	num = num - 1;
+	
+document.getElementById("itemcount_"+i).innerHTML = +num ;
+ }
+ document.getElementById("outstock").id = "instock_"+i;
+	document.getElementById("instock_"+i).innerHTML = "In stock";
+	document.getElementById("nostock_button").id = "b_"+i;
+	document.getElementById("image"+i).classList.remove('imageOp');
+
+}
+ 
+
+</script>
+</head>
+</html>

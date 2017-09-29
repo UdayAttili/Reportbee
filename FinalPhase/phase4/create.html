@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<body style="background-color:gainsboro;">
+<link rel="stylesheet" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<h1 align="center" style="font-family:verdana; font-size:250%;"><font color="#0097C6">Add products</font></h1>
+<div class="page">
+
+<form  id="create" type="post">
+<div class="title">Heading</div><br>
+<input type="text" name="head" value=""/><br>	
+<div class="title">SubHeading</div><br>
+<input type="text" name="shead" value=""/><br>	
+
+<div class="title">Price</div><br>
+<input type="text" name="price" value=""/><br>	
+
+<div class="title">Quantity</div><br>
+<input type="text" name="quantity" value=""/><br>	
+<br>
+<div class="title">Image</div><br>
+<input type="file" name="image" value=""/><br>	
+
+<br><br>
+<input type="submit" id="btn" name="btn" class="btn" onclick="inc();" value="Submit"/>
+</form>
+</div>
+
+<a style="display:none" id="counter">0</a>
+<script type="text/javascript">
+var num;
+ 	$('#create').submit(function(e) {
+    e.preventDefault(); // prevent the form from attempting to send to the web server
+    var $inputs = $('#create :input');
+
+    var values = {};
+    $inputs.each(function() {
+        values[this.name] = $(this).val();
+		
+    });
+	
+    localStorage.setItem(''+parseInt(num), JSON.stringify(values));
+});
+function inc(){
+	num =  parseInt($("#counter").text());
+	num = num + 1;
+	localStorage.setItem("count", num);
+	alert("Data saved in Local Storage");
+	
+var count = JSON.parse(localStorage.getItem("count"));
+document.getElementById("counter").innerHTML = count;
+
+
+localStorage.setItem("item_"+num,"no");
+}
+
+
+
+
+</script>
+</body>
+</head>
+</html>

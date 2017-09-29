@@ -1,0 +1,97 @@
+.product {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+	display: inline-block;
+    height: 150px; 
+    width: 90%;
+    font-size: 16px;
+    line-height: 50px;
+    border-radius: 5px;
+    background-color: #f1f1f1; 
+	margin-left:12px;
+	margin-right:51px;
+	margin-bottom:5px;
+}
+.container img{
+	float: left;
+	
+    height: 100%;
+    width: 15%;
+	
+    
+}
+.container .imageOp {
+	float: left;
+	opacity:0.5;
+    height: 100%;
+    width: 15%;
+	
+}
+
+.product:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.1);
+}
+ .container {
+	background: white;
+	width: 100%;
+	height: 150px;
+    padding: 1px ; 
+    border-radius: 5px;
+   margin-left:1px;
+}
+.container  .text{
+    padding: 0px ;
+	float:left;
+	font-size:16px;
+	margin: 2px 0px 0px 0px;
+}
+.container .instock{
+	background-color: #FFB266;
+    color: black;
+	float:right;
+    border: none;
+    padding: 0px 30px;
+    text-align: center;
+    font-size: 8px;
+    margin: 2px 20px 0px 20px;
+	border-radius: 40px;
+    cursor: mouse;
+}
+.container #outstock{
+	background-color: grey;
+    color: black;
+	float:right;
+    border: none;
+    padding: 0px 30px;
+    text-align: center;
+    font-size: 8px;
+    margin: 2px 20px 0px 20px;
+	border-radius: 40px;
+    cursor: mouse;
+}
+.container .addto_button{
+ background-color: #FF7E47;
+    border: none;
+    color: white;
+    padding: 3px 40px;
+    text-align: center;  
+    font-size: 12px;
+    float:right;
+	margin:-120px 30px;
+    cursor: pointer;
+	border-radius: 40px;
+	
+}
+#nostock_button{
+    background-color:grey;  
+    border: none;
+    color: white;
+    padding: 3px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+     float:right;
+	margin:-120px 30px;
+    cursor: mouse;
+	border-radius: 40px;
+}

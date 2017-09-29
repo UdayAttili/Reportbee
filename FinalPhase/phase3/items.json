@@ -1,0 +1,40 @@
+[
+  {
+    "head": "Beats",
+    "shead": "Headphones",
+    "price": "3100",
+    "quantity": "6",
+	"image": "images/p6.jpg"
+  },
+  {
+    "head": "Bose",
+    "shead": "Headphones",
+    "price": "2399",
+    "quantity": "8",
+	"image": "images/p4.jpg"
+  },
+  {
+    "head": "Sony",
+    "shead": "Headphones",
+    "price": "1899",
+    "quantity": "5",
+	"image": "images/p5.jpg"
+	
+  },
+  {
+    "head": "Fossil",
+    "shead": "Watch",
+    "price": "25000",
+    "quantity": "4",
+	"image": "images/p9.jpg"
+	
+  },
+  {
+    "head": "Generic",
+    "shead": "Watch",
+    "price": "3500",
+    "quantity": "4",
+	"image": "images/p7.jpg"
+	
+  }
+]

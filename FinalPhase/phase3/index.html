@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" href="styling.css">
+<link id="pagestyle" rel="stylesheet" href="styling1.css">
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="read.js"></script>
+<script type="text/javascript">
+   function swap(sheet)
+   {
+		document.getElementById('pagestyle').setAttribute('href' , sheet); 
+   }
+		
+    </script>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body style="background-color:gainsboro;">
+<!-- Header -->
+<div class="topnav">
+<div class="circle" id="count_cart">0</div> 
+<div class="text" onClick="openNav()">Cart</div>
+<img src = "cart.png" onClick="openNav()">
+<div class="title">Online Shopping</div>
+</div>
+
+<div id="sidenav">
+
+ <div class="cart_title">
+YOUR SHOPPING CART
+<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+</div>
+
+
+<div class="total">
+Total &ensp; 
+<div class="total_price" id="price">
+&#8377;0
+</div>
+</div>
+</div>
+ 
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+<!-- Products-->
+<div class="page">
+<div id="toggle">
+<div class="img_list" onClick="swap('styling2.css');">
+<img src = "list.png" height="60" width="60">
+</div>
+<div class="img_view" onClick="swap('styling1.css');">
+<img src = "grid.png" height="42" width="42">
+</div>
+</div>
+
+<div id= "all">
+<a style="display:none"id="counter">0</a>
+ 
+</div>
+</div>
+<!--------No predefined products--------------->
+
+
+
+
+  </body>
+  
+  <script >
+var count = JSON.parse(localStorage.getItem("count"));
+document.getElementById("counter").innerHTML = count;
+
+ 
+  for(var i=0;i<=count;i++)
+  $('#all').append('<div class="product"> <div class="container">  <img src=""  id="image'+i+'" >  <b><div class="text" id="head'+i+'">   <div class="instock">  IN STOCK  </div> </div></b> <p id="shead'+i+'"></p>  <h4><b id="price'+i+'">&#8377;</b></h4>  <button class="addto_button" id="b_'+i+'"  value="item_'+i+'"  onclick="check(this.value);">ADD TO CART</button>   </div> </div>')
+
+for(var i=0;i<=count;i++)
+{
+var myObj = JSON.parse(localStorage.getItem(i));
+var head = myObj["head"];
+ document.getElementById("head"+i).innerHTML += head;
+
+ var shead = myObj["shead"];
+ document.getElementById("shead"+i).innerHTML += shead;
+ 
+ var price = myObj["price"];
+ document.getElementById("price"+i).innerHTML += price;
+ 
+  var image = myObj["image"];
+ document.getElementById("image"+i).src = image;
+ }
+ function check(val) {
+ var temp2 = val;
+  var res = temp2.split("_");
+  var i = res[1];
+
+ var obj = localStorage.getItem(val);
+ var data = JSON.parse(localStorage.getItem(i));
+ var quan = data["quantity"];
+ 
+// localStorage.setItem(''+obj.setItem["quantity"],quan-1);
+ 
+ /*localStorage.setItem("data",data.length);
+ for (var j = 0; j < data.length; j++){
+        var key = data[j];
+        if(key === "quantity")
+           alert( key );
+		   }*/
+ 
+if(obj == "no")
+{
+ 
+ localStorage.setItem(val,"yes");
+ 
+ item(val);
+ price_total(val);
+ addt();
+ item_inc(i);
+}
+else
+{
+	 price_total(val);
+ addt();
+ item_inc(i);
+}
+	
+ }
+ </script>
+ <script>
+ var total=0;
+function item(val) {
+ var temp2 = val;
+  var res = temp2.split("_");
+  
+  var i = res[1];
+	
+  $(' <div class="item" id="item'+i+'" value="item_'+i+'" style="display: block" >   <span class="close"  id="item_'+i+'" onclick="this.parentElement.style.display= (&#39;none&#39;);subt_remove(this.id);total_remove(this.id);" >&times;</span></div> ').insertAfter(".cart_title")
+
+
+var myObj = JSON.parse(localStorage.getItem(i));
+var head = myObj["head"];
+var price = myObj["price"];
+ document.getElementById("item"+i).innerHTML += '<span class="cart_circle" id="itemcount_'+i+'">0</span>'+head +'&emsp;'+' <img src="plus.png" id="item_'+i+'" onclick="addt();price_total(this.id);item_inc('+i+');" height="25" width="25"> <img src="minus.png" height="25" width="25" id="itemdec_'+i+'" onclick="subt('+i+');dec_total(this.id);item_dec('+i+');" >'+'&emsp;' +'<b>' +'&#8377;'+price+'</b>';
+}
+
+
+function price_total(val){
+var temp2 = val;
+  var res = temp2.split("_");
+ var i = res[1];
+
+var myObj = JSON.parse(localStorage.getItem(i));
+var price = myObj["price"];
+total =  total + parseInt(price);
+document.getElementById("price").innerHTML = "&#8377;"+total ;
+}
+ 
+function total_remove(val){
+var temp2 = val;
+  var res = temp2.split("_");
+ var i = res[1];
+ num =  parseInt($('#itemcount_'+i+'').text());
+var myObj = JSON.parse(localStorage.getItem(i));
+var price = myObj["price"];
+total =  total - parseInt(price*num);
+document.getElementById("price").innerHTML = "&#8377;"+total ;
+
+
+ var obj = localStorage.getItem(val);
+ localStorage.setItem(val,"no");
+
+} 
+ 
+ 
+function dec_total(val){
+var temp2 = val;
+  var res = temp2.split("_");
+ var i = res[1];
+
+
+var myObj = JSON.parse(localStorage.getItem(i));
+var price = myObj["price"];
+num =  parseInt($('#itemcount_'+i+'').text());
+if(num > 0)
+total =  total - parseInt(price);
+document.getElementById("price").innerHTML = "&#8377;"+total ;
+}
+ function item_inc(i){
+ num =  parseInt($('#itemcount_'+i+'').text());
+num = num + 1;
+
+document.getElementById("itemcount_"+i).innerHTML = +num ;
+}
+ function item_dec(i){
+ num =  parseInt($('#itemcount_'+i+'').text());
+if(num > 0)
+ num = num - 1;
+
+
+document.getElementById("itemcount_"+i).innerHTML = +num ;
+}
+ 
+
+</script>
+</head>
+</html>
